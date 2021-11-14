@@ -26,21 +26,20 @@ public class AddProductToCart {
 	public void i_add_four_different_products_to_my_wishlist() throws IOException, InterruptedException {
 		// driver.get(ReadProperty.returnvalue("URL"));
 		if (driver == null) {
-			System.out.println("Line 21 - CreateInstance - Driver is null");
+			System.out.println("Driver is null");
 			System.setProperty("webdriver.gecko.driver",
 					System.getProperty("user.dir") + "//src//test//java//driver//geckodriver.exe");
-			//this.driver = driver;
+			// this.driver = driver;
 			driver = new FirefoxDriver();
 			driver.manage().window().maximize();
 		} else {
-			System.out.println("Line 21 - CreateInstance - Driver is not null");
+			System.out.println("Driver is not null");
 		}
 
 		loginPage lpage = new loginPage(driver);
 
 		driver.get(ReadProperty.returnvalue("URL"));
 		lpage.addProducts();
-		
 
 	}
 
@@ -57,12 +56,13 @@ public class AddProductToCart {
 		// lpage = new loginPage(driver);
 		wlist = new clickWishList(driver);
 		wlist.totalWishList();
-	
 
 	}
 
 	@When("I search for lowest price product")
 	public void i_search_for_lowest_price_product() throws InterruptedException {
+		wlist = new clickWishList(driver);
+		wlist.searchLowestPrice();
 
 	}
 
