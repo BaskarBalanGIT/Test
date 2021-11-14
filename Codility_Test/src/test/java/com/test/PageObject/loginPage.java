@@ -1,19 +1,19 @@
 package com.test.PageObject;
 
-
 import java.io.IOException;
-import java.util.List;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.utility.ReadProperty;
 
 public class loginPage {
 
-	WebDriver driver;
+	public WebDriver driver;
 	ReadProperty ReadProp = new ReadProperty();
+	WebElement element;
 
 	// By BrokerId = By.id("brokerId");
 	By Product1 = By.xpath("(//*[@href='?add_to_wishlist=20'])[1]");
@@ -27,13 +27,12 @@ public class loginPage {
 	By Cart = By.xpath("(//*[@class='la la-shopping-bag'])[1]");
 	By textassertion = By.xpath("//*[text()='Product added to cart successfully']");
 	By Checkelement = By.xpath("//*[@class='remove']");
-
-	public loginPage(WebDriver driver) throws IOException {
-
-		this.driver = driver;
-		driver.get(ReadProp.returnvalue("URL"));
-		driver.manage().window().maximize();
+	By searchlowestprice = By.xpath("//*[@class='product-price']");
+	
+	public loginPage(WebDriver driver) {
+		this.driver=driver;
 	}
+	
 
 	public void addProducts() throws IOException, InterruptedException {
 		driver.findElement(Product1).click();
@@ -48,35 +47,10 @@ public class loginPage {
 		
 	}
 
-	public void clickWishList() throws InterruptedException {
+	public void clickList() throws InterruptedException {
 		driver.findElement(Wishlist).click();
 		Thread.sleep(3000);
-	}
-
-	public void totalWishList() throws InterruptedException {
-		List<WebElement> element = driver.findElements(By.xpath("//div[@class='item-wrapper']"));
-		int si = element.size();
-		Thread.sleep(3000);
-
-	}
-
-	public void addToCart() throws InterruptedException {
-		Thread.sleep(3000);
-		driver.findElement(AddToCart).click();
-		Thread.sleep(3000);
-		
-//		//assertEquals("Product added to cart successfully", driver.findElement(textassertion));
-
-	}
-
-	public void clickCart() {
-		driver.findElement(Cart).click();
-		if (driver.findElement(Checkelement).isDisplayed())
-			{
-			System.out.println("Test is successfull");
-			};
-		
-//		assertEquals("Product added to cart successfully", textassertion);
+	
 
 	}
 

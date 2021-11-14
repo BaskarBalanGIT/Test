@@ -1,5 +1,6 @@
-C:\Users\baska\eclipse-workspace\Codility_Test\src\test\java\com\test\PageObject\loginPage.java
-C:\Users\baska\eclipse-workspace\Codility_Test\src\test\java\stepDefinition\AddProductToCart.java
-C:\Users\baska\eclipse-workspace\Codility_Test\src\test\java\testrunner\TestRunnerclass.java
-C:\Users\baska\eclipse-workspace\Codility_Test\src\test\java\org\utility\ReadProperty.java
-C:\Users\baska\eclipse-workspace\Codility_Test\src\test\java\Codility_Test\Codility_Test\AppTest.java
+C:\Users\baska\git\Test\Codility_Test\src\test\java\com\test\PageObject\Cart.java
+C:\Users\baska\git\Test\Codility_Test\src\test\java\com\test\PageObject\loginPage.java
+C:\Users\baska\git\Test\Codility_Test\src\test\java\testrunner\TestRunnerclass.java
+C:\Users\baska\git\Test\Codility_Test\src\test\java\com\test\PageObject\clickWishList.java
+C:\Users\baska\git\Test\Codility_Test\src\test\java\org\utility\ReadProperty.java
+C:\Users\baska\git\Test\Codility_Test\src\test\java\stepDefinition\AddProductToCart.java
