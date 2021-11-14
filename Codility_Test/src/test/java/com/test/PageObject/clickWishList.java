@@ -41,9 +41,9 @@ public class clickWishList {
 		int uplint = 0;
 
 		List<WebElement> allElements = driver.findElements(ReadLowest);
-		System.out.println(allElements.size());
+		//System.out.println(allElements.size());
 		for (int i = 2; i <= allElements.size(); i++) {
-			System.out.println(i);
+			//System.out.println(i);
 
 			WebElement str = driver.findElement(By.xpath("(//*[@class='product-price'])[" + i + "]"));
 			String unitprice = str.getText();
@@ -51,23 +51,23 @@ public class clickWishList {
 			// Finding out Length
 
 			up = unitprice.length();
-			System.out.println("length is " + up);
+			//System.out.println("length is " + up);
 
 			// Finding out the correct amount using subsrting option
 			correctamount = unitprice.substring(up - 5);
-			System.out.println("Substring: " + unitprice.substring(up - 5));
+			//System.out.println("Substring: " + unitprice.substring(up - 5));
 
 			// Casting the string to double and moving to array;
 			Double d = Double.parseDouble(correctamount);
 			ArrayList<Double> ara = new ArrayList<Double>();
 			ara.add(d);
 			Collections.sort(ara);
-			System.out.println("List after the use of" + " Collection.sort() :\n" + ara);
+			//System.out.println("List after the use of" + " Collection.sort() :\n" + ara);
 		}
 
 		WebElement lowestPrice = driver
 				.findElement(By.xpath("//*[@class='product-price'] //*[text()='" + correctamount + "']"));
-		System.out.println(lowestPrice.getText());
+		System.out.println("***********Lowest Price is " + lowestPrice.getText()+"********************");
 
 	}
 
@@ -77,9 +77,9 @@ public class clickWishList {
 		int uplint = 0;
 
 		List<WebElement> allElements = driver.findElements(ReadLowest);
-		System.out.println(allElements.size());
+		//System.out.println(allElements.size());
 		for (int i = 2; i <= allElements.size(); i++) {
-			System.out.println(i);
+			//System.out.println(i);
 
 			WebElement str = driver.findElement(By.xpath("(//*[@class='product-price'])[" + i + "]"));
 			String unitprice = str.getText();
@@ -87,23 +87,23 @@ public class clickWishList {
 			// Finding out Length
 
 			up = unitprice.length();
-			System.out.println("length is " + up);
+			//System.out.println("length is " + up);
 
 			// Finding out the correct amount using subsrting option
 			correctamount = unitprice.substring(up - 5);
-			System.out.println("Substring: " + unitprice.substring(up - 5));
+			//System.out.println("Substring: " + unitprice.substring(up - 5));
 
 			// Casting the string to double and moving to array;
 			Double d = Double.parseDouble(correctamount);
 			ArrayList<Double> ara = new ArrayList<Double>();
 			ara.add(d);
 			Collections.sort(ara);
-			System.out.println("List after the use of" + " Collection.sort() :\n" + ara);
+			//System.out.println("List after the use of" + " Collection.sort() :\n" + ara);
 		}
 
 		WebElement lowestPrice = driver
 				.findElement(By.xpath("//*[@class='product-price'] //*[text()='" + correctamount + "']"));
-		System.out.println(lowestPrice.getText());
+		//System.out.println(lowestPrice.getText());
 
 		driver.findElement(AddToCart).click();
 		Thread.sleep(3000);
