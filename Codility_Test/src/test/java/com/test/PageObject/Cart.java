@@ -2,11 +2,9 @@ package com.test.PageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.utility.InitialiseDriver;
 
-public class Cart {
-
-	private WebDriver driver;
+public class Cart extends InitialiseDriver {
 
 	By Cart = By.xpath("(//*[@class='la la-shopping-bag'])[1]");
 	By textassertion = By.xpath("//*[text()='Product added to cart successfully']");
@@ -14,9 +12,9 @@ public class Cart {
 	By searchlowestprice = By.xpath("//*[@class='product-price']");
 
 	public Cart(WebDriver driver) {
-		this.driver=driver;
+		InitialiseDriver.driver = driver;
 	}
-	
+
 	public void clickCart() {
 
 		driver.findElement(Cart).click();

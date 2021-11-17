@@ -2,18 +2,14 @@ package com.test.PageObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
-
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.utility.InitialiseDriver;
 
-public class clickWishList {
+public class clickWishList extends InitialiseDriver {
 
-	private WebDriver driver;
 	WebElement Element;
 
 	// By BrokerId = By.id("brokerId");
@@ -23,7 +19,7 @@ public class clickWishList {
 	By AddToCart = By.xpath("(//*[text()='Add to cart'])[1]");
 
 	public clickWishList(WebDriver driver) {
-		this.driver = driver;
+		InitialiseDriver.driver = driver;
 	}
 
 	public void totalWishList() throws InterruptedException {
@@ -41,9 +37,9 @@ public class clickWishList {
 		int uplint = 0;
 
 		List<WebElement> allElements = driver.findElements(ReadLowest);
-		//System.out.println(allElements.size());
+		// System.out.println(allElements.size());
 		for (int i = 2; i <= allElements.size(); i++) {
-			//System.out.println(i);
+			// System.out.println(i);
 
 			WebElement str = driver.findElement(By.xpath("(//*[@class='product-price'])[" + i + "]"));
 			String unitprice = str.getText();
@@ -51,35 +47,34 @@ public class clickWishList {
 			// Finding out Length
 
 			up = unitprice.length();
-			//System.out.println("length is " + up);
+			// System.out.println("length is " + up);
 
 			// Finding out the correct amount using subsrting option
 			correctamount = unitprice.substring(up - 5);
-			//System.out.println("Substring: " + unitprice.substring(up - 5));
+			// System.out.println("Substring: " + unitprice.substring(up - 5));
 
 			// Casting the string to double and moving to array;
 			Double d = Double.parseDouble(correctamount);
 			ArrayList<Double> ara = new ArrayList<Double>();
 			ara.add(d);
 			Collections.sort(ara);
-			//System.out.println("List after the use of" + " Collection.sort() :\n" + ara);
+			// System.out.println("List after the use of" + " Collection.sort() :\n" + ara);
 		}
 
 		WebElement lowestPrice = driver
 				.findElement(By.xpath("//*[@class='product-price'] //*[text()='" + correctamount + "']"));
-		System.out.println("***********Lowest Price is " + lowestPrice.getText()+"********************");
+		System.out.println("***********Lowest Price is " + lowestPrice.getText() + "********************");
 
 	}
 
 	public void addToCart() throws InterruptedException {
 		int up = 0;
 		String correctamount = null;
-		int uplint = 0;
 
 		List<WebElement> allElements = driver.findElements(ReadLowest);
-		//System.out.println(allElements.size());
+		// System.out.println(allElements.size());
 		for (int i = 2; i <= allElements.size(); i++) {
-			//System.out.println(i);
+			// System.out.println(i);
 
 			WebElement str = driver.findElement(By.xpath("(//*[@class='product-price'])[" + i + "]"));
 			String unitprice = str.getText();
@@ -87,23 +82,23 @@ public class clickWishList {
 			// Finding out Length
 
 			up = unitprice.length();
-			//System.out.println("length is " + up);
+			// System.out.println("length is " + up);
 
 			// Finding out the correct amount using subsrting option
 			correctamount = unitprice.substring(up - 5);
-			//System.out.println("Substring: " + unitprice.substring(up - 5));
+			// System.out.println("Substring: " + unitprice.substring(up - 5));
 
 			// Casting the string to double and moving to array;
 			Double d = Double.parseDouble(correctamount);
 			ArrayList<Double> ara = new ArrayList<Double>();
 			ara.add(d);
 			Collections.sort(ara);
-			//System.out.println("List after the use of" + " Collection.sort() :\n" + ara);
+			// System.out.println("List after the use of" + " Collection.sort() :\n" + ara);
 		}
 
 		WebElement lowestPrice = driver
 				.findElement(By.xpath("//*[@class='product-price'] //*[text()='" + correctamount + "']"));
-		//System.out.println(lowestPrice.getText());
+		// System.out.println(lowestPrice.getText());
 
 		driver.findElement(AddToCart).click();
 		Thread.sleep(3000);

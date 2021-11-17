@@ -2,16 +2,14 @@ package com.test.PageObject;
 
 import java.io.IOException;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.utility.InitialiseDriver;
 import org.utility.ReadProperty;
 
-public class loginPage {
+public class loginPage extends InitialiseDriver{
 
-	public WebDriver driver;
 	ReadProperty ReadProp = new ReadProperty();
 	WebElement element;
 
@@ -28,11 +26,10 @@ public class loginPage {
 	By textassertion = By.xpath("//*[text()='Product added to cart successfully']");
 	By Checkelement = By.xpath("//*[@class='remove']");
 	By searchlowestprice = By.xpath("//*[@class='product-price']");
-	
+
 	public loginPage(WebDriver driver) {
-		this.driver=driver;
+		InitialiseDriver.driver = driver;
 	}
-	
 
 	public void addProducts() throws IOException, InterruptedException {
 		driver.findElement(Product1).click();
@@ -44,13 +41,12 @@ public class loginPage {
 		Thread.sleep(3000);
 		driver.findElement(Product4).click();
 		Thread.sleep(3000);
-		
+
 	}
 
 	public void clickList() throws InterruptedException {
 		driver.findElement(Wishlist).click();
 		Thread.sleep(3000);
-	
 
 	}
 
